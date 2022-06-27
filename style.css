@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variables */
+:root {
+    --crimson: #dc143c;
+    --white: #fff;
+    --black: #000;
+    --grey: #c4c0c0;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+p {
+    color: var(--white);
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    margin-top: .5rem;
+    letter-spacing: .05rem;
+    font-weight: 300;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* navigation section */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+}
+
+nav .logo {
+    font-size: 3rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+}
+
+nav .nav-link {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+nav .nav-link li {
+    list-style: none;
+    position: relative;
+}
+
+nav .nav-link li a {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    color: var(--grey);
+    letter-spacing: .2rem;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    height: 3px;
+    width: 25px;
+    background-color: var(--white);
+    margin: 5px;
+    transition: all .3s ease-in;
+}
+
+@media screen and (max-width: 1100px) {
+    nav .nav-link {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav .nav-link {
+        position: absolute;
+        height: 90vh;
+        top: 10vh;
+        right: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        transform: translateX(100%);
+        background: linear-gradient(45deg, #312a2a 10%, #0e0a0a 100%);
+        transition: transform .5s ease;
+        z-index: 1000;
+    }
+    .burger {
+        display: block;
+    }
+    .nav-link li {
+        opacity: 0;
+    }
+}
+
+@keyframes navFade {
+    from {
+        opacity: 0;
+        top: 5rem;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+body.nav-active {
+    overflow-y: hidden;
+}
+
+nav .nav-link.nav-active {
+    transform: translateX(0);
+}
+/* End Navigation section */
+
+/* Hero Section */
+#hero {
+    background-image: url(./img/hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 1
+}
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--black);
+    opacity: 80%;
+    z-index: -1;
+}
+
+#hero .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5rem;
+    justify-content: flex-start;
+}
+
+#hero h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: var(--grey);
+}
+
+#hero .accessories {
+    margin-top: 2rem;
+}
+
+#hero .accessories h2 {
+    font-size: 3.5rem;
+    color: transparent;
+    letter-spacing: .1rem;
+    position: relative;
+    width: fit-content;
+    animation: text .5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+#hero .accessories h2:nth-child(1) {
+    animation-delay: 1.5s;
+}
+#hero .accessories h2:nth-child(2) {
+    animation-delay: 2.5s;
+}
+#hero .accessories h2:nth-child(3) {
+    animation-delay: 3.5s;
+}
+
+/* hero text animation */
+@keyframes text {
+    100% {
+        color: var(--grey);
+    }
+}
+
+#hero .accessories h2 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--crimson);
+    animation: box .8s ease-in;
+    animation-delay: 1s;
+}
+
+#hero .accessories h2:nth-child(1) span {
+    animation-delay: 1s;
+}
+#hero .accessories h2:nth-child(2) span {
+    animation-delay: 2s;
+}
+#hero .accessories h2:nth-child(3) span {
+    animation-delay: 3s;
+}
+
+@keyframes box {
+    50% {
+        left: 0;
+        width: 100%;
+    }
+    100% {
+        left: 100%;
+        width: 0%;
+    }
+}
+
+#hero .hero .cta {
+    display: inline-block;
+    color: var(--grey);
+    padding: .8rem 3rem;
+    border: 2px solid #dc143c;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    margin-top: 3rem;
+    transition: .3s ease;
+    transition-property: background, color;
+}
+
+#hero .hero .cta:hover {
+    color: var(--grey);
+    background: var(--crimson);
+}
+
+#hero .hero span {
+    color: var(--crimson);
+}
+
+/* End Hero Section */
+
+/* Service section */
+#services .services {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 10rem 0;
+}
+
+#services .section-title {
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--black);
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+
+#services .services-top p {
+    font-size: 1.4rem;
+    margin: .5rem 0 0;
+    line-height: 2.3rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    color: black;
+    text-align: center;
+}
+
+#services .services-bottom {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#services .services-item {
+    flex-basis: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background: url(./img/he.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 1rem .5rem;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    position: relative;
+    z-index: 1;
+    color: white;
+    overflow: hidden;
+}
+
+#services .services-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    opacity: .8;
+    z-index: -1;
+}
+
+#services .gears {
+    padding: .8rem .7rem;
+    background: linear-gradient(45deg, #ecab33 10%, #ebbb61 100%);
+    border-radius: 50%;
+    margin: 0 0 1rem;
+}
+
+#services .fa-gears {
+    color: #706d6d;
+    font-size: 2rem;
+}
+
+#services .services-item h2 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+/* end service section */
