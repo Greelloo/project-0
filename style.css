@@ -103,7 +103,7 @@ nav .nav-link li a {
 
 @media screen and (max-width: 768px) {
     body {
-        overflow-x: hidden;
+        overflow: hidden;
     }
     nav .nav-link {
         position: absolute;
