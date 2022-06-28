@@ -19,10 +19,6 @@ html {
   font-size: 10px;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 a {
     text-decoration: none;
 }
@@ -106,6 +102,9 @@ nav .nav-link li a {
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
     nav .nav-link {
         position: absolute;
         height: 90vh;
